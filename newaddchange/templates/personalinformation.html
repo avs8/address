@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css"> 
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.fieldWrapper ul{list-style-type:none;}
+.fieldWrapper ul li{display:inline;}
+
+input[type=submit]{
+width:10em;
+height:2.5em;
+color:maroon;
+font-size:1em;
+float:right;
+margin-top:5px;
+display: block;
+padding:6px 10px;
+font-weight:800;}
+form {
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;}
+label { display: inline-block; width: 210px; text-align: right; }
+.container .fieldWrapper .errorlist {
+   color: red;}
+</style>
+<div class="container">   
+<div class="panel panel-success">
+<div class="panel-heading" id='first'>Step 2: Enter your Personal Information</div>
+<div class="panel-body" style="font-size:1em; font-weight:normal;">  
+<h4>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h4>   
+<form action="/newaddchange/addressoldnew/" method="post">{% csrf_token %}
+{{ wizard.management_form }}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.title.errors }}
+        <label for="id_title">Choose Title:</label>
+        {{ form.title }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.first_name.errors }}
+        <label id="mody" for="id_first_name">First Name:</label>
+        {{ form.first_name }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.lastname.errors }}
+        <label for="id_last_name">Last Name:</label>
+        {{ form.last_name }}
+    </div>
+    
+    <div class="fieldWrapper">
+        {{ form.phone_number.errors }}
+        <label for="id_phone_number">Phone Number:</label> 
+        {{ form.phone_number }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.primary_email.errors }}
+        <label for="id_primary_email">Primary Email:</label> 
+        {{ form.primary_email }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.secondary_email.errors }}
+        <label for="id_secondary_email">Secondary Email:(Optional)</label> 
+        {{ form.secondary_email }}
+    </div>
+	<div class="fieldWrapper">
+        {{ form.exclusive_notification.errors }}
+        <label for="id_exclusive_notification"></label> 
+        
+        <div><strong>Exclusive Notification:</strong> {{ form.exclusive_notification }} 
+        I authorize changeyouraddress.net to send me valuable offers and 
+        	 coupons from third-parties that could help me save up to $500.00 
+        	 on services related to my move.</div>
+    <div class="fieldWrapper">
+        {{ form.person_validate.errors }}
+        <label for="id_exclusive_notification"></label> 
+        
+        <div><strong>Person Validate:</strong> {{ form.person_validate }}
+         I hereby swear and affirm that I am the person, executor, power of attorney,
+         guardian, authorized officer, or agent of the person for whom mail
+         would be forwarded by the United States Postal Service under this order.</div>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.person_authorization.errors }}
+        <label for="id_exclusive_notification"></label> 
+        
+        <div><strong>Person Authorization: {{ form.person_authorization }}</strong> I authorize United Address Change to file on my behalf an official U.S. mail forwarding
+         change of address form to forward my mail from the OLD Address 
+        to my NEW Address listed on this form with United States Postal Service.</div>
+    </div><br>
+   {% if wizard.steps.prev %}
+<button class="btn btn-info" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev}}">Prev Step</button>	
+{% endif %}	
+
+<input class="btn btn-success" type="submit" value="Next" />	
+
+</form>
+</div>
+</div>
+{% endblock %}

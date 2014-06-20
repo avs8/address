@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+form {
+  max-width: 330px;
+  padding: 10px;
+  margin: 0 auto;
+  
+} 
+.container .profile {
+        width: 300px;
+        clear: both;
+    }
+.container .profile input {
+        width: 100%;
+        clear: both;
+    } 
+h2{text-align:center;}
+.errorlist {
+   color: red;
+}
+</style>
+<div class="container" style="margin-top:50px;">
+<div class="panel panel-info">
+<div class="panel-heading" id='first'>Please Update your Profile</div>
+<h2>Your Profile</h2>
+<form action="/accounts/profile/" method="post">{% csrf_token %}
+<div class="profile">
+{{form.as_p}}
+
+<input class="btn btn-lg btn-primary btn-block" type="submit" value="Update">
+</div>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block login %}class="active"{% endblock %}
+
+{% block content_login %}
+
+<style type="text/css"> 
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+</style>
+<div class="container" style="text-align:center; margin-top:50px">
+
+<form class="form-signin"  role="form" id ="login" action="/accounts/auth/" method="post">{% csrf_token %}
+	<h2 class="form-signin-heading">Please sign in</h2>	
+	<input type="text" class="form-control" placeholder="User Name" name="username" value="" id="username" required autofocus>
+	<input type="password" class="form-control" name="password" value="" id="password" placeholder="Password" required>	
+	<label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+    </label>
+	<input class="btn btn-lg btn-primary btn-block" type="submit" value="login" />
+</form><br>
+<h3><a href="/accounts/register/">Register</a></h3><br/>
+
+
+
+   {% if user and not user.is_anonymous %}
+     
+     <p><a>Hello {{ user.get_full_name|default:user.username }}!</a>
+     
+       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+   {% else %}
+    
+       <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook |  </a>
+    
+  
+       <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google | </a>
+    
+     
+       <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">Login with Twitter</a></p>
+     
+   {% endif %}
+ 
+</div><br><br>
+
+
+{% endblock %}
+ 

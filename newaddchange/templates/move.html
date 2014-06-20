@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+h2{font-size:1.5em;color:#8B0000; background-color:#D8D8D8;width:40%;margin-left:10px;text-align:center;border-style:solid;padding:5px; }
+</style>
+<div class="panel panel-danger" style="margin-top:50px;margin-left:20px;margin-right:20px;">
+   <div class="panel-heading"><a href="/newaddchange/all">Back to All Moves</a></div>
+   
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-success">
+                 <div class="panel-heading">Moving and Personal Information</div>
+                 <div class="container">
+				<h2>Moving Information</h2>
+				<p><strong>Moving Type: </strong>{{ move.movingtype }}</p>
+				<p><strong>Moving Date: </strong>{{ move.movingdate }}</p>
+				<p><strong>Moving Status: </strong>{{move.movingstatus}}</p>
+				<p><strong>Buisness: </strong>{{move.buisnessname}}</p>
+				</div>
+			<div class="container">
+				<h2>Personal Information</h2>
+				<p><strong>Title: </strong>{{move.title}}</p>
+				<p><strong>First Name: </strong>{{move.first_name}}</p>
+				<p><strong>Last Name: </strong>{{move.last_name}}</p>
+				<p><strong>Phone_Number: </strong>{{move.phone_number}}</p>
+				<p><strong>Exclusive Notification: </strong>{{move.exclusive_notification}}</p>
+				<p><strong>Primary Email: </strong>{{move.primary_email}}</p>
+				<p><strong>Secondary Email: </strong>{{move.secondary_email}}</p>
+				<p><strong>Person Validation: </strong>{{move.person_validate}}</p>
+				<p><strong>Person Authorization: </strong>{{move.person_authorization}}</p>
+				</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+             <div class="panel panel-success">
+                 <div class="panel-heading">Old and New Address</div>
+                 <div class="container">
+					<h2>Old Address</h2>
+					<p><strong>Street: </strong>{{move.old_street}}</p>
+					<p><strong>Apartment/Suite: </strong>{{move.old_apt_suite}}</p>
+					<p><strong>City: </strong>{{move.old_city}}</p>
+					<p><strong>State: </strong>{{move.old_state}}</p>
+					<p><strong>ZipCode: </strong>{{move.old_zip_code}}</p>
+				</div>
+				<div class="container">
+					<h2>New Address</h2>
+					<p><strong>Moving to Own or Rent: </strong>{{move.own_rent}}</p>
+					<p><strong>Street: </strong>{{move.new_street}}</p>
+					<p><strong>Apartment/Suite: </strong>{{move.new_apt_suite}}</p>
+					<p><strong>City: </strong>{{move.new_city}}</p>
+					<p><strong>State: </strong>{{move.new_state}}</p>
+					<p><strong>ZipCode: </strong>{{move.new_zip_code}}</p>
+					</div>
+            </div>
+        </div>
+        
+    </div>
+   </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+<style>
+.fieldWrapper ul {list-style-type:none;padding:0; margin:0;}
+ .fieldWrapper ul li{display:inline;}
+h1{text-align:center;} 
+label{padding:10px;}
+#moty, #most{float:left; clear:left;}
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+form {
+  max-width: 600px;
+  padding: 10px;
+  margin: 0 auto;}
+  
+input[type=submit]{
+width:10em;
+height:2.5em;
+color:maroon;
+font-size:1em;
+float:right;
+margin-top:5px;
+display: block;
+padding:6px 10px;
+font-weight:800;}
+
+.container .fieldWrapper .errorlist {
+   color: red;}
+</style>
+    
+<div class="container"> 
+<h1>Address Change Form</h1><br>  
+<div class="panel panel-success">
+<div class="panel-heading" id='first'>Step 1: Enter your Moving Information</div>
+<div class="panel-body" style="font-size:1em; font-weight:normal;">
+
+<h4>Step{{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h4>
+<form action="/newaddchange/addressoldnew/" method="post">{% csrf_token %}
+{{ wizard.management_form }}
+    <div class="fieldWrapper">
+        {{ form.movetype.errors }}
+        <label id= "moty" for="id_movetype">Move Type:</label>
+        {{ form.movingtype }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.movingdate.errors }}
+        <label id="mody" for="id_movingdate">Moving Date:</label>
+             {{ form.movingdate }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.movingstatus.errors }}
+        <label id="most" for="id_movingstatus">Moving Status:</label>
+        {{ form.movingstatus }}
+    </div>
+    
+    <div class="fieldWrapper">
+        {{ form.buisnessname.errors }}
+        <label id="buis" for="id_buisnessname">Buisnessname:</label> 
+        {{ form.buisnessname }}
+    </div>
+
+{% if wizard.steps.prev %}
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first}}">First Step</button>
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev}}">Prev Step</button>	
+{% endif %}	
+
+<input class="btn btn-success" type="submit" value="Next" />	
+
+</form>
+</div>
+</div><br>
+{% endblock %}

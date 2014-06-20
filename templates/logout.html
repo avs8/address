@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %}
+{% block logout %}class="active"{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:60px;">
+<div class="panel panel-success">
+<div class="panel-heading" id='first'>You are now logged out.</div>
+<h2><center>Thank you for using <span class="glyphicon glyphicon-envelope" style="color:red;">easyaddressforward.com!!</span></center></h2>
+<p><center>We are committed to serve you better!!</center></p>
+<center><p><img src="{% static "assets/images/safemove.jpg" %}"</p></center>
+<p><center>Have a safe, smooth relocation</center></p>
+</div>
+</div>
+</div>
+{% endblock %}

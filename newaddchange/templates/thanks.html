@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content_thanks %}
+<div class="container" style="margin-top:20px; text-align:center;">
+<div class="panel panel-info">
+<div class="panel-heading">Thanks</div>
+<p><img src="{% static "assets/images/thanks.jpg" %}"><p>
+<h1>for submitting your information</h1>
+<p>You will be receiving confirmation email shortly</p>
+<p>For your safety and security please don't forget to Logout</p>
+<a class="btn btn-lg btn-primary" href="/accounts/logout/"><span class="glyphicon glyphicon-log-out"> Logout.</span></a><br><br> 
+</div>
+</div>
+</div>
+{% endblock %}

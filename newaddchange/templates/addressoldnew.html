@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block addressoldnew %}class="active"{% endblock %}
+
+{% block content %}
+<style>
+<style type="text/css"> 
+.fieldWrapper ul{list-style-type:none;}
+.fieldWrapper ul li{display:inline;}
+input[type=submit]{
+width:10em;
+height:2.5em;
+color:maroon;
+font-size:1em;
+margin-left:500px;
+margin-top:-10px;
+margin-right:170px;
+display: block;
+padding:6px 10px;
+font-weight:800;}
+form {
+  max-width: 1000px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-left:200px;}
+label { display: inline-block; width: 210px; text-align: right; }
+#form2{margin-left:5px;}
+.container .fieldWrapper .errorlist {
+   color: red;}
+</style>
+ <div class="container">
+<div class="panel panel-success">
+<div class="panel-heading" id='first'>This is Final Step towards your address change</div>
+ <div class="panel-body">   
+<h4>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h4>     
+<form action="/newaddchange/addressoldnew/" method="post">{% csrf_token %}
+{{ wizard.management_form }}
+{{ form.non_field_errors }}
+<div class="fieldWrapper">
+        {{ form.own_rent.errors }}
+        <label for="id_own_rent" style="color:red; font-size:1.5em;">Moving to:</label>
+        {{ form.own_rent }}
+    </div>
+<div class="container" id="form1" class="row">
+<div class="span6">
+<h3 style="margin-top:2px;color:#FF0000">Enter Your Old Address</h3>
+    
+    <div class="fieldWrapper">
+        {{ form.old_street.errors }}
+        <label id="mody" for="id_first_name">Street:</label>
+        {{ form.old_street }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.old_apt_suite.errors }}
+        <label for="id_last_name">Apartment No./Suite:</label>
+        {{ form.old_apt_suite }}
+    </div>
+    
+    <div class="fieldWrapper">
+        {{ form.old_city.errors }}
+        <label for="id_phone_number">City:</label> 
+        {{ form.old_city }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.old_state.errors }}
+        <label for="id_primary_email">State:</label> 
+        {{ form.old_state }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.old_zip_code.errors }}
+        <label for="id_secondary_email">Zip Code:</label> 
+        {{ form.old_zip_code }}
+    </div>
+    </div>
+    </div>
+    <div class="container" id="form2" class="row">
+    <div class="span6">
+  <h3 style="color:#FF0000">Enter Your New Address</h3>  
+    <div class="fieldWrapper">
+        {{ form.new_street.errors }}
+        <label id="mody" for="id_first_name">Street:</label>
+        {{ form.new_street }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.new_apt_suite.errors }}
+        <label for="id_last_name">Apartment No./Suite:</label>
+        {{ form.new_apt_suite }}
+    </div>
+    
+    <div class="fieldWrapper">
+        {{ form.new_city.errors }}
+        <label for="id_phone_number">City:</label> 
+        {{ form.new_city }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.new_state.errors }}
+        <label for="id_primary_email">State:</label> 
+        {{ form.new_state }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.new_zip_code.errors }}
+        <label for="id_secondary_email">Zip Code:</label> 
+        {{ form.new_zip_code }}
+    </div>
+	</div><br><br>
+
+{% if wizard.steps.prev %}
+<button class="btn btn-info" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first}}">First Step</button>
+<button class="btn btn-info" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev}}">Prev Step</button>	
+{% endif %}	
+
+<input class="btn btn-success" type="submit" value="Submit" />	
+
+</form>
+</div>
+</div>	
+{% endblock %}

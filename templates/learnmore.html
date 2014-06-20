@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>accordion demo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
+    type="text/javascript"></script>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"
+    type="text/javascript"></script>
+<style>
+body{font-family:"Times New Roman", Times,serif; font-size:1.5em; margin:0px; padding:0px; 
+border:30px solid #000066; text-align:left; width:1000px; margin:10px auto;  color:#474747; background-color:#F8F8F8;}  
+h1{margin-top:15px; text-align:center; font-style:oblique; font-weight:bold; font-size:2.5em;color:#000066;}
+h3{font-style:oblique; font-weight:bold; font-size:1.5em;color:#000066; padding-left:20px;background-color:#D8D8D8;}  
+#accordion{float:right; clear:right;border:15px solid #000066; padding:10px;}
+p{padding:10px; text-align:left;}
+#accordion .ui-accordion-content {  
+    width: 100%;  
+    background-color: #f3f3f3;  
+    color: #777;  
+    font-size:1em;  
+    line-height: 16pt;  
+}  
+</style>   
+</head>
+<body>
+<h1>Introduction to Python</h1> 
+<div id="accordion">
+  <h3>About</h3>   
+  <div>
+  <p>
+    Python is an easy to learn, powerful programming language.
+    It has efficient high-level data structures and a simple but effective approach to object-oriented programming. 
+    Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for
+     scripting and rapid application development in many areas on most platforms.</p>
+
+	<p>The Python interpreter and the extensive standard library are freely available in source or binary 
+	form for all major platforms from the Python Web site, <a href="http://www.python.org/">www.python.org</a>, and may be freely distributed. 
+	The same site also contains distributions of and pointers to many free third party Python modules,
+ 	programs and tools, and additional documentation.</p>
+	</div>
+	<h3>Comment</h3>
+	<div>
+	<p>Any line which starts with a hash (#) is a comment. It will be skipped by the interpreter. 
+	There is no multiline comment in Python, you should start every line with a hash instead.
+	Comments in code are good (so long as you keep them up to date), but nothing
+ 	like so important as making your code readable. </p>
+	</div>
+	<h3>Variables</h3>
+	<div>
+	
+	<p>In the interactive interpreter session we actually created a very
+	 simple Python program. We created a variable called 'x' and associated it with 
+	 the value 3, the number. We then printed this value to the screen.
+	In almost any programming language, the 'variable' is the most basic concept. 
+	Variables are the way that we can store values and work with them. We might process
+	 these values and save them to a file, or perhaps send them across the internet, but 
+ 	variables are the way we keep track of them.</p>
+	<p>The line of code x = 3 is a statement which means it does a job. The job it does is 
+	to assign the value 3 to the variable 'x'. In Python terminology we say that it binds 
+	the name 'x' to the number three. This idea of variables being names bound to objects 
+	(or names which 'reference' objects) is important in Python.
+
+	A variable name in Python can be almost anything, so long as it obeys certain rules:
+	<ul>
+		<li>It can only contain ascii characters, digits and underscores (no spaces or other symbols)</li>
+		<li>It cannot start with a digit</li>
+		<li>It cannot be any words from a list of reserved keywords.</li>
+	</ul>
+	</div>
+  <h3 class="selector">Data Type</h3>
+  <div>
+   <p> Data types determine whether an object can do something, or whether it just 
+    would not make sense. Other programming languages often determine whether an operation
+     makes sense for an object by making sure the object can never be stored somewhere where 
+     the operation will be performed on the object (this type system is called static typing). 
+     Python does not do that. Instead it stores the type of an object with the object, and checks 
+     when the operation 
+    is performed whether that operation makes sense for that object (this is called dynamic typing).</p>
+  </div>
+  <h3 class="selector">Built-in Data Types</h3>
+  <div>
+    Python´s built-in (or standard) data types can be grouped into several classes. Sticking to the 
+    hierarchy scheme used in the official Python documentation these are numeric types, sequences, sets and mappings
+     (and a few more not discussed further here). Some of the types are only available in certain versions of
+      the language as noted below.....
+    <ul>
+    	<li>Numeric Types:
+    	<ul>
+      		<li>int: Integers; equivalent to C longs in Python 2.x, non-limited length in Python 3.x</li>
+      		<li>long: Long integers of non-limited length; exists only in Python 2.x</li>
+      		<li>float: Floating-Point numbers, equivalent to C doubles/li>
+      		<li>complex: Complex Numbers</li>	
+   		 </ul>
+   		 </li>
+    
+		<li>Sequences:
+			<ul>
+				<li>str: String; represented as a sequence of 8-bit characters in Python 2.x, but as a sequence of Unicode characters (in the range of U+0000 - U+10FFFF) in Python 3.x</li>
+				<li>byte: a sequence of integers in the range of 0-255; only available in Python 3.x</li>
+				<li>byte array: like bytes, but mutable (see below); only available in Python 3.x</li>
+				<li>List, Tuple, Dictionary</li>    	
+    		</ul>	
+  		</li>
+  	</ul>	
+  </div>  
+</div> 
+
+<script>
+$(document).ready(function() {
+ $( "#accordion" ).accordion();
+});
+</script> 
+</body>
+</html>

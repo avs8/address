@@ -1,0 +1,3 @@
+To run server on aws:  sudo python manage.py runserver 0.0.0.0:80
+To connect to server:  ssh -i AjitaKey.pem ec2-user@54.186.218.181
+To transfer file:  scp -i AjitaKey.pem -r Users/manish/address ec2-user@54.186.218.181:/home/ec2-user/address

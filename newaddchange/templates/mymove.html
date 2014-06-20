@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mymove</title>
+<style type="text/css"> 
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+ul{list-style-type:none;}
+
+
+input[type=submit]{
+width:10em;
+height:2.5em;
+color:maroon;
+font-size:1em;
+float:right;
+margin-top:5px;
+display: block;
+padding:6px 10px;
+font-weight:800;}
+form {
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;}
+label { display: inline-block; width: 210px; text-align: right; }
+
+</style>
+</head>
+<body>
+<form action="/newaddchange/mymove/">{% csrf_token %}
+{{form1.as_p}}
+{{form2.as_p}}
+{{form3.as_p}}
+</form>
+
+<input type="submit"/>
+</body>
+</html>

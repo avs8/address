@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="panel panel-danger" style="margin:40px; padding:20px;">
+<div class="panel-heading">List of all your previous address change request</div>
+<div class="container">
+
+<h2 style="border-bottom:3px solid black;">Previous Moves</h2>
+	 <h4 style="color:red;">Hi,  {{ user.first_name|title}}</h4>
+	<p>Below is your latest address change request.</p>	
+	 
+		{% for move in moves %} 
+		
+		{% if user.email == move.primary_email %}	
+		  	
+		<h4><a href="/newaddchange/get/{{ move.id }}/">{{ move.movingdate }}</a></h4>
+		
+	
+{% endif %}
+{% endfor %}	
+{% endblock %}
