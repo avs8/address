@@ -6,8 +6,9 @@ address
   
 Python<br/>
 Django <br/>
+
 Bootstrap3
 
 
-Bought domain from Godaddy
+Bought domain from Godaddy <br/>
 Server: AWS
