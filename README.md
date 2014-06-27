@@ -1,8 +1,9 @@
 address
 =======
 # This is my First DjangoPowered Site
- Up and running
-  www.easyaddressforward.us
+ Up and running<br/>
+  www.easyaddressforward.us<br/>
+  www.easyaddressforward.com
   
 Python<br/>
 Django <br/>
