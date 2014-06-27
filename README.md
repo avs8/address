@@ -1,4 +1,13 @@
 address
 =======
 # This is my First DjangoPowered Site
- I am creating this site for address change request. 
+ Up and running
+  www.easyaddressforward.us
+  
+Python
+Django
+Bootstrap3
+
+
+Bought domain from Godaddy
+Server: AWS
