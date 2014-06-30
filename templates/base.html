@@ -8,29 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>	
-
     <!-- Le styles --> 
-    <link rel="stylesheet" href="{% static "assets/css/jquery-ui.css"%}" >  
-     <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}" >   
-    <link rel="stylesheet" href="{% static "assets/css/style.css" %}" > 
+     <link rel="stylesheet" href="{% static "assets/css/jquery-ui.css"%}" >  
+     <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}" >
+     <link rel="stylesheet" href="{% static "assets/css/style.css" %}" >
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    
     
 {% endblock %}
 <body>
+{% block content_carousel %}{% endblock %}
+
+{% block content_marketing %} {% endblock %}
+
 {% include 'navbar.html' %}      
-{% block content_carousel %}{% endblock %}   
-{% block content_marketing %}{% endblock %}
 
 <div id="registercontent">
 {% block content_thanks %}{% endblock %}
-{% block content_login %}{% endblock %}  
+{% block content_login %}{% endblock %}
+{% block content_register %} {% endblock %}  
 {% block content %}{% endblock %}     
 {% block content_about %} {% endblock %}
 {% block content_personalinfo %}{% endblock %}
-{% block content_register %}{% endblock %}
 {% block content_loggedin %}{% endblock %}
 {% block content_contact %}{% endblock %} 
 </div> 
@@ -41,22 +41,12 @@
  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-   <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="{% static "assets/js/bootstrap-transition.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-alert.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-modal.js" %}"></script>
+    <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
     <script src="{% static "assets/js/bootstrap-dropdown.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-scrollspy.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-tab.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-tooltip.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-popover.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-button.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-collapse.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap-carousel.js" %}"></script>
-        
-
-
+   
+	
+	
 <script>    
 $(function() {
     $( ".datepicker" ).datepicker({dateFormat: "yy-mm-dd", 
