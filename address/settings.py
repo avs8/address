@@ -12,14 +12,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-EMAIL_USE_TLS = True
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER = 'ajitasingh8@gmail.com'
-EMAIL_HOST_PASSWORD = 'EEtrajms123'
-EMAIL_PORT = 587
-
-FACEBOOK_APP_ID = '847255208636781'
-FACEBOOK_SECRET_KEY = '09be57ec7eaa989ecf14e39ec9a4652e'
 
 
 
