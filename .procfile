@@ -1,2 +1,2 @@
-web: gunicorn myproject.wsgi --log-file -
+web: gunicorn address.wsgi --log-file -
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"

@@ -143,3 +143,6 @@ STATICFILES_DIRS = (
 LOGIN_REDIRECT_URL = '/mainmenu/'
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
