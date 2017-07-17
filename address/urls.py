@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^accounts/invalid/$', 'address.views.invalid_login'),
     url(r'^accounts/register/$', 'address.views.register_user'),
     url(r'^accounts/register_success/$', 'address.views.register_success'),
-    url('', include('social.apps.django_app.urls', namespace='social'))
+    # url('', include('social.apps.django_app.urls', namespace='social'))
     
     
 )

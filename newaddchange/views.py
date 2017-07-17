@@ -11,7 +11,7 @@ from newaddchange.models import MoveType
 from userprofile.models import UserProfile
 from newaddchange.forms import MoveTypeForm, PersonalInformationForm, AddressOldNewForm
 from django.core.context_processors import csrf
-from django.contrib.formtools.wizard.views import SessionWizardView
+from formtools.wizard.views import SessionWizardView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse
