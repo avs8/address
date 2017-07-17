@@ -125,7 +125,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 STATICFILES_DIRS = (
-    ('assets', '/Users/manishsinha/address/static'),
+    ('assets', '/address/static'),
 
 )
 
