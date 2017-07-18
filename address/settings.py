@@ -28,11 +28,13 @@ TEMPLATE_DEBUG = True
 
 SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 
-TEMPLATE_DIRS = (("address/templates/"),
-                 ("address/newaddchange/templates/"),
-                 ("address/userprofile/templates/"),
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
-                 )
+MEDIA_ROOT = PROJECT_PATH + '/media/'
+
+TEMPLATE_DIRS = (
+    PROJECT_PATH + '/templates/',
+)
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
