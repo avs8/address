@@ -31,7 +31,7 @@ SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['address/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
