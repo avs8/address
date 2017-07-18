@@ -28,9 +28,9 @@ TEMPLATE_DEBUG = True
 
 SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 
-TEMPLATE_DIRS = (("/Users/manishsinha/address/templates/"),
-                 ("/Users/manishsinha/address/newaddchange/templates/"),
-                 ("/Users/manishsinha/address/userprofile/templates/"),
+TEMPLATE_DIRS = (("address/templates/"),
+                 ("address/newaddchange/templates/"),
+                 ("address/userprofile/templates/"),
 
                  )
 
