@@ -28,11 +28,30 @@ TEMPLATE_DEBUG = True
 
 SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 
-TEMPLATE_DIRS = (("/address/templates/"),
-                 ("/address/newaddchange/templates/"),
-                 ("/address/userprofile/templates/"),
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            # ... some options here ...
+        },
+    },
+]
 
-                 )
+import os.path
+PROJECT_DIR = os.path.dirname(__file__) # this is not Django setting.
+print PROJECT_DIR
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_DIR, "templates"),
+    # here you can add another templates directory if you wish.
+)
+
+# TEMPLATE_DIRS = (("address/templates"),
+#                  ("address/newaddchange/templates"),
+#                  ("address/userprofile/templates"),
+#
+#                  )
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
