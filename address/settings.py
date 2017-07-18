@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -49,7 +48,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 )
 
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -144,5 +142,19 @@ LOGIN_REDIRECT_URL = '/mainmenu/'
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
+
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
