@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "address.settings")
 
@@ -6,13 +7,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DEBUG = True
 
-import os.path
+SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 
-PROJECT_DIR = os.path.dirname(__file__)  # this is not Django setting.
+import os.path
+PROJECT_DIR = os.path.dirname(__file__) 
+print PROJECT_DIR
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, "templates"),
-    # here you can add another templates directory if you wish.
+
 )
 
 TEMPLATES = [
@@ -42,7 +45,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 )
 
-# Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,14 +88,7 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
-# Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
 
 LANGUAGE_CODE = 'en-us'
 
@@ -106,6 +101,8 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
+
 STATIC_ROOT = 'address/static'
 STATIC_URL = '/static/'
 
@@ -122,12 +119,15 @@ LOGIN_REDIRECT_URL = '/mainmenu/'
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
 DEBUG = True
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
