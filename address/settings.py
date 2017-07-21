@@ -1,43 +1,19 @@
-"""
-Django settings for address project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "address.settings")
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
 TEMPLATE_DEBUG = True
 
-SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
-
 import os.path
-PROJECT_DIR = os.path.dirname(__file__) # this is not Django setting.
-print PROJECT_DIR
+
+PROJECT_DIR = os.path.dirname(__file__)  # this is not Django setting.
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, "templates"),
     # here you can add another templates directory if you wish.
 )
-
-
 
 TEMPLATES = [
     {
@@ -51,14 +27,6 @@ TEMPLATES = [
         }
     },
 ]
-
-
-
-# TEMPLATE_DIRS = (("address/templates"),
-#                  ("address/newaddchange/templates"),
-#                  ("address/userprofile/templates"),
-#
-#                  )
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -74,9 +42,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 )
 
-
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,8 +54,6 @@ INSTALLED_APPS = (
     'formtools',
     'newaddchange',
     'userprofile',
-    # 'crispy_forms',
-    # 'social.apps.django_app.default',
 
 )
 
@@ -115,9 +79,6 @@ ROOT_URLCONF = 'address.urls'
 
 WSGI_APPLICATION = 'address.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -126,18 +87,13 @@ DATABASES = {
 }
 
 import dj_database_url
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 # Update database configuration with $DATABASE_URL.
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -150,8 +106,6 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
 STATIC_ROOT = 'address/static'
 STATIC_URL = '/static/'
 
@@ -168,19 +122,12 @@ LOGIN_REDIRECT_URL = '/mainmenu/'
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
-
-
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
 DEBUG = True
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
