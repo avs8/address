@@ -1,6 +1,6 @@
 import os
 import dj_database_url
-import local_settings
+# import local_settings
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "address.settings")
 
@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = True
 
 PROJECT_DIR = os.path.dirname(__file__)
 
-SECRET_KEY = local_settings.SECRET_KEY
+# SECRET_KEY = local_settings.SECRET_KEY
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, "templates"),
@@ -127,8 +127,8 @@ ALLOWED_HOSTS = ['*']
 
 DEBUG = True
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
 
