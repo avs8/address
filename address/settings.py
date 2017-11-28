@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = True
 
 PROJECT_DIR = os.path.dirname(__file__)
 
-# SECRET_KEY = local_settings.SECRET_KEY
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, "templates"),
