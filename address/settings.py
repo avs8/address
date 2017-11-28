@@ -1,5 +1,6 @@
 import os
 import dj_database_url
+import local_settings
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "address.settings")
 
@@ -7,11 +8,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DEBUG = True
 
-SECRET_KEY = '%lh8kat1xmdjq5ja$c-_ki)8ef3$b71v$9jceij=&2w+@2q30d'
 
-import os.path
-PROJECT_DIR = os.path.dirname(__file__) 
-print PROJECT_DIR
+PROJECT_DIR = os.path.dirname(__file__)
+
+SECRET_KEY = local_settings.SECRET_KEY
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, "templates"),
@@ -35,6 +35,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
@@ -70,12 +71,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
-    'django.contrib.auth.backends.ModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'social.backends.facebook.FacebookOAuth2',
+#     'social.backends.google.GoogleOAuth2',
+#     'social.backends.twitter.TwitterOAuth',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 ROOT_URLCONF = 'address.urls'
 
@@ -84,9 +85,11 @@ WSGI_APPLICATION = 'address.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DATABASES['default'] = dj_database_url.config()
 
@@ -101,8 +104,6 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
 STATIC_ROOT = 'address/static'
 STATIC_URL = '/static/'
 

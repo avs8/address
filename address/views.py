@@ -27,9 +27,6 @@ def about(request):
     return render_to_response('about.html')
 
 
-def contact(request):
-    return render_to_response('contact.html')
-
 
 def login(request):
     if request.user.is_authenticated():
@@ -65,18 +62,6 @@ def logout(request):
     auth.logout(request)
     return render_to_response('logout.html')
 
-
-# def register_user(request):
-# 	if request.method == 'POST':
-# 		form = MyRegistrationForm(request.POST)
-# 		if form.is_valid():
-# 			form.save()
-# 			return HttpResponseRedirect('/accounts/register_success/')
-# 			
-# 	args = {}
-# 	args.update(csrf(request))
-# 	args['form'] = MyRegistrationForm()
-# 	return render_to_response('register.html', args)
 
 def register_user(request):
     if request.user.is_authenticated():
@@ -117,7 +102,7 @@ def contact(request):
             return HttpResponse('Thanks for Contacting us!!! We will get back to you ASAP')
     else:
         form = ContactForm()
-    args = {}
+    args = dict()
     args['form'] = form
     args.update(csrf(request))
     return render_to_response('contact.html', args)
